@@ -211,6 +211,7 @@ Practice accessing data above by console.log-ing following items:
 console.log(artists[0].name);
 
 //(2) Bio of the third artist (2nd index) in the array
+console.log(artists[2].bio);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
@@ -228,7 +229,7 @@ Use getArtistByIndex to do the following:
 Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
 function getArtistByIndex(artists, index) {
-  return `the artist at index ${artists[index].id} is ${artists[index].name}`;
+  return `the artist at index ${index} is ${artists[index].name}`;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -285,12 +286,14 @@ Use addArtist to do the following:
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
 function addArtist(artists) {
-  artists.push(`"id" 20,
-    "name" "Carlos Moreno",
-    "years" "1993 - 2021",
-    "genre" "Web Design",
-    "nationality" "Venezuelan",
-    "bio" "From maracaibo venezuela, Carlos comes from a long line of lawyers and surrealist painters, he developed art skills at the young age of 5 years old when he painted his first piece, the fall of otelo."`);
+  artists.push({
+    id: 20,
+    name: "Carlos e Moreno Dominguez",
+    years: "1993 - 2021",
+    genre: "Web Design",
+    nationality: "Venezuelan",
+    bio: "From maracaibo venezuela, Carlos comes from a long line of lawyers and surrealist painters, he developed art skills at the young age of 5 years old when he painted his first piece, the fall of otelo.",
+  });
   return artists;
 }
 
@@ -301,7 +304,7 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt() {
+function lotsOfArt(artists) {
   let filteredArtists = [];
   for (let i = 0; i < artists.length; i++) {
     if (artists[i].paintings > 100) {
